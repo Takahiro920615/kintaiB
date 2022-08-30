@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'kintaipages/top'
+  root 'kintaipages#top'
   
   resources :kintaipages
 
