@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  befpr_action :set_user, only:  %i(new create edit)
+  before_action :set_user, only:  %i(new create edit)
   
   def new
     
@@ -10,11 +10,8 @@ class UsersController < ApplicationController
   end
   
   def edit
-    if @user.save
-      redirect_to user      
-    else
-      
-    end
+      @user = User.find(params[:id])
+  
   end
   
   
