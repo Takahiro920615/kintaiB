@@ -15,19 +15,13 @@
   </head>
 
   
-    <header class = "nav navbar-fix-top navbar-inverse">
-      <div class = "container">
-        <%= link_to"勤怠システム","#", id:"logo" %>
-        <nav>
-          <ul class = "nav navbar-nav navbar-right">
-            <li><%= link_to "トップへ","#" %></li>
-            <li><%= link_to "ログイン","#" %></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    
   <body>
+    <%= render 'layouts/header'%>
     <div class = "container">
+      <% flash.each do |message_type,msg| %>
+      <div class = "alert alert-<%= message_type%>"><%= msg %></div>
+      <% end %>
       <%= yield %>
       <%= debug(params) if Rails.env.development? %>
     </div>
