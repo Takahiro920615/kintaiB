@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only:  %i(new create edit)
+  before_action :set_user, only:  %i( create edit)
   
   def new
-    @user = User.new(user_params)
+    @user = User.new
   end
     
 
