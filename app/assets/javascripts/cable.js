@@ -4,6 +4,8 @@
 //= require action_cable
 //= require_self
 //= require_tree ./channels
+//= require jquery
+//= require bootstrap
 
 (function() {
   this.App || (this.App = {});

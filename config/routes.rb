@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
+    # ログイン機能
+  get    '/login', to: 'sessions#new'
+  post   '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+   
    root 'kintaipages#top'
    get 'users/new'
   
   #ログイン機
-  # ログイン機能
-  get    '/login', to: 'sessions#new'
-  post   '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+ 
 
 
   
