@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only:  %i( create edit)
+  
   
   def new
     @user = User.new
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
     else
-      render.new
+      render :new
     end
   end
   
@@ -29,9 +29,7 @@ class UsersController < ApplicationController
   
   private
   
-  def set_user
-    @user = User.find(params[:id])
-  end
+
   
   private
   
