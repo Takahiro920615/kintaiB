@@ -1,5 +1,5 @@
 module ApplicationHelper
-  
+ 
 # full_titleヘルパーメソッド　page_nameが空白かどうか検証している
   def full_title(page_name = "")
     base_title = "KintaiApp"
