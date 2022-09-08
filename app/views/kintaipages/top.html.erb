@@ -2,11 +2,12 @@
 <!DOCTYPE html>
 <html>
  <head>
- 
+  <% provide(:title, "Top")%>
  </head>
 
 
   <body>
+    <div class = "container">
     <div class = "row">
       <div class= "col-md-10 col-md-offset-1">
         <div class = "center jumbotron" id="top-btn">
@@ -15,6 +16,7 @@
               <p>アカウントの作成は<%=link_to "こちら",users_path %>から</p>
         </div>
       </div>
+    </div>
     </div>
   </body>
 </html>
