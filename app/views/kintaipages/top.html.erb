@@ -1,4 +1,4 @@
-<% provide(:title, 'トップ')%>
+
 <!DOCTYPE html>
 <html>
  <head>
@@ -13,7 +13,7 @@
         <div class = "center jumbotron" id="top-btn">
               <h1>勤怠システム</h1>
               <%= link_to "ログイン",'#', class:"btn btn-primary btn-md  form-acoun" %>
-              <p>アカウントの作成は<%=link_to "こちら",users_path %>から</p>
+              <p>アカウントの作成は<%= link_to "こちら",new_user_path %>から</p>
         </div>
       </div>
     </div>
