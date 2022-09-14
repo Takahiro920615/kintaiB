@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only:[:show, :edit, :update, :destroy, :edit_basic_info, :update_basic_info]
   
   
   def new
@@ -31,11 +32,22 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
+  
+  def edit_basic_info
+      
+  end
+  
+  def update_basic_info
+  end
  
   private
   
   def user_params
     params.require(:user).permit(:name,:email,:password,:password_confirmation)
+  end
+  
+  def set_user
+    @user= User.find(params[:id])
   end
 
 end
