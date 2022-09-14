@@ -18,10 +18,18 @@
         <% @users.each do |user| %>
         <tr>
           <td>
+            <% if current_user.admin? %>
             <%= link_to user.name,user_path(user.id) %> |
-            <%= link_to "削除", "#"%>
+            <%= link_to "削除", "#", data:{confirm: "削除してよろしいですか？"} %>
+            <% else %>
+            <%= user.name %>
+            <% end %>
           </td>
-        
+          <td>
+            <% if current_user.admin?%>
+             <%= link_to "基本情報編集",edit_basic_info_user_path(user),remote: true, class:"btn btn-success"%>
+             <% end %>
+          </td>
         </tr>
       </tbody>
     <% end %>
