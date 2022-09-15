@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only:[:show, :edit, :update, :destroy, :edit_basic_info, :update_basic_info]
   
   
+  
   def new
     @user = User.new
   end
@@ -31,6 +32,22 @@ class UsersController < ApplicationController
   
   def index
     @users = User.paginate(page: params[:page])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    if @user. update_attributes(user_params)
+      flash[:success]= "更新しました。"
+      redirect_to @user
+    else
+      render:edit
+    end
+  end
+  
+  def destroy
+    @user.destroy
+    flash[:success] = "#{@user.name}を削除しました。"
+    redirect_to users_url
   end
   
   def edit_basic_info
