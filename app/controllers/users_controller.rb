@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only:[:show, :edit, :update, :destroy, :edit_basic_info, :update_basic_info]
-  
+  before_action :set_one_month, only: [:show]
   
   
   def new
@@ -28,8 +28,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @first_day = Date.current.beginning_of_month
-    @last_day = @first_day.end_of_month
+   
   end
   
   def index
