@@ -1,19 +1,25 @@
 <% provide(:title,@user.name) %>
+
+
 <div class = "col-md-12">
   <%= link_to "勤怠を編集" ,'#' , class:"btn btn-primary" %>
     <table class = "table table-bordered table-condensed user-table">
       <tr>
-        <td>時間管理表</td>
+        <td><%= link_to"⏪",user_path(date: @first_day.prev_month)%><%= Date.today.year%>年<%=Date.today.month%>月　時間管理表
+        <%= link_to"⏩️",user_path(date: @first_day.next_month)%>
+        </td>
         <td>指定勤務時間:<%= format_basic_info(@user.work_time)%></td>
         <td>基本時間:<%= format_basic_info(@user.basic_time)%></td>
-        <td>月初日:<%= l(@first_day, format: :short)%></td>
+        <td></td>
+        <td>初日:<%= l(@first_day, format: :short)%></td>
       </tr>
       
       <tr>
         <td>所属:<%= @user.department.present?? @user.department: "未所属"%></td>
         <td>名前：<%= @user.name %></td>
-        <td>出勤時間</td>
-        <td>月末日:<%= l(@last_day, format: :short) %></td>
+        <td>コード</td>
+        <td>出勤日数:0日</td>
+        <td>締め:<%= l(@last_day, format: :short) %></td>
       </tr>
     </table>
     
