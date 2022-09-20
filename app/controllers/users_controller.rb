@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    day = Date.current 
+    @worked_sum = @attendances.where.not(started_at:nil).count
    
   end
   
