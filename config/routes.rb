@@ -7,7 +7,7 @@ Rails.application.routes.draw do
    root 'kintaipages#top'
    get 'users/new'
   
-  #ログイン機
+   get "search", to: "users#search"
  
 
 
