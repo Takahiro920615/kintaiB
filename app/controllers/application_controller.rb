@@ -1,8 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper  
+ 
   
-  
+   def set_user
+    @user = User.find(params[:id])
+   end
   
   $days_of_the_week = %w{日 月 火 水 木 金 土}
   
@@ -18,6 +21,7 @@ class ApplicationController < ActionController::Base
       ActiveRecord::Base.transaction do
         one_month.each{ |day| @user.attendances.create!(worked_on: day)}
      end
+     @attendances = @user.attendances.where(worked_on: @first_day..@last_day).order(:worked_on)
     end
     
   rescue ActiveRecord::RecordInvalid
