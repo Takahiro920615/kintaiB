@@ -24,7 +24,7 @@
     
          <div>
           <table class ="table table-bordered table-condensed table-striped table-hover" id="table-attendances">
-          <%= link_to "勤怠を編集" ,'#', class: "btn btn-secondary" %>
+          <%= link_to "勤怠を編集" ,attendances_edit_one_month_user_path(@user,@attendances), class: "btn btn-secondary" %>
             <thead>
                 <th rowspan="2">日時</th>
                 <th>曜日</th>
