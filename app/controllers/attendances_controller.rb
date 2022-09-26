@@ -26,6 +26,10 @@ class AttendancesController < ApplicationController
     def edit_one_month
     end
     
+    def update_one_month
+     
+    end
+    
  private
 
   def set_user
