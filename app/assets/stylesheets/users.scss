@@ -52,3 +52,14 @@ body {
 .line{
   text-decoration: none;@important;
 }
+
+#table-attendances{
+  th{
+    vertical-align: middle;
+    text-align: center;
+  }
+  td{
+    vertical-align: middle;
+    text-align: center;
+  }
+}
