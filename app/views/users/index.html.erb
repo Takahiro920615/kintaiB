@@ -35,7 +35,7 @@
             <%= user.name %>
             <% end %>
           </td>
-          <td class="kind-department"><%= user.department.present? ? user.department: "未所属" %></td>
+          <td><%= user.department.present? ? user.department: "未所属" %></td>
           <td>
             <% if current_user.admin? %>
              <%= link_to "基本情報編集", edit_basic_info_user_path(user), remote: true, class: "btn btn-success" %>

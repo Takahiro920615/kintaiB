@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only:[:show, :edit, :update, :destroy, :edit_basic_info, :update_basic_info]
-  before_action :set_one_month, only: [:show]
+  before_action :logged_in_user, only:[ :edit, :update, :destroy, :edit_basic_info, :update_basic_info]
+  before_action :correct_user, only: [:edit, :update]
+  before_action :admin_user, only: [:destroy, :edit_basic_info, :update_basic_info]
+  before_action :set_one_month, only: :show
   
   
   def new
@@ -36,7 +39,7 @@ class UsersController < ApplicationController
   
   def index
     @user = User.find_by(name: params[:name])
-    @users = User.paginate(page: params[:page], per_page: 5).search(params[:search])
+    @users = User.paginate(page: params[:page], per_page: 20).search(params[:search])
   end
   
   
@@ -65,7 +68,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(basic_info_params)
       @user.save
       flash[:success]= "#{@user.name}の基本情報を更新しました。"
-      redirect_to user_url
+      redirect_to users_url
       
     else
       flash[:danger] = "#{@user.name}の更新は失敗しました。" + @user.errors.full_messages.join("、")
@@ -84,8 +87,25 @@ class UsersController < ApplicationController
     @user= User.find(params[:id])
   end
   
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger]="ログインしてください"
+      redirect_to login_url
+    end
+  end
+  
+  def correct_user
+    redirect_to (root_url) unless current_user?(@user)
+  end
+  
   def basic_info_params
     params.require(:user).permit(:department,:basic_time,:work_time)
   end
+  
+  def admin_user
+    redirect_to root_url unless current_user.admin?
+  end
+
 
 end
