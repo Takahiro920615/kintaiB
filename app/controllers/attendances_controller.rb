@@ -42,10 +42,6 @@ class AttendancesController < ApplicationController
                  
     end
  private
-
-  def set_user
-    @user= User.find(params[:id])
-  end
   
   def attendances_params
    params.require(:user).permit(attendances:[:started_at, :finished_at, :note])[:attendances]
