@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
    def set_user
     @user = User.find(params[:id])
    end
+   
   
   $days_of_the_week = %w{日 月 火 水 木 金 土}
   
