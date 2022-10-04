@@ -39,6 +39,7 @@ gem 'bootstrap-sass'
 # gem 'capistrano-rails', group: :development
 gem 'jquery-rails'
 gem 'rails_autolink'
+gem 'rounding'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
