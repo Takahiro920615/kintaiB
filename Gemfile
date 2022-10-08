@@ -8,7 +8,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 source 'https://rubygems.org'
-ruby '2.6.9'
+ruby '3.1.2'
 gem 'rails', '~> 5.1.6'
 gem 'bcrypt'
 gem 'faker'
@@ -42,6 +42,7 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'rails_autolink'
 gem 'rounding'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
