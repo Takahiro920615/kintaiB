@@ -8,8 +8,9 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 source 'https://rubygems.org'
-ruby '3.1.2'
+
 gem 'rails', '~> 5.1.6'
+ruby '2.6.9'
 gem 'bcrypt'
 gem 'faker'
 gem 'will_paginate'
